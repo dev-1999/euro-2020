@@ -293,7 +293,7 @@ grpF = ['Hungary','Portugal','France','Germany']
 
 ### MAIN LOOP
 #number of iterations
-n = 2500
+n = 25000
 for iteration in range(n):
     #sim group
     winners = []
@@ -315,12 +315,11 @@ for iteration in range(n):
     third_sorted = [x for y, x in sorted(zip(thirdtb, thirds))]
     third_grps = [x for y, x in sorted(zip(thirdtb, ['A','B','C','D','E','F']))]
     scenario = ""
+
     for x in sorted(third_grps[-4:]):
         scenario = scenario + x
-    scenario
-    third_dict = dict(zip(third_grps,thirds))
+    third_dict = dict(zip(['A','B','C','D','E','F'],thirds))
     group_losers = fourths + third_sorted[:2]
-
 
     # In[733]:
 
@@ -394,15 +393,10 @@ for iteration in range(n):
     output_table.loc[winner,'P_WF'] += 1/n
     print(iteration,winner,runnerup)
 
-
-# In[740]:
-
-
 #output
 output_table.to_excel('sim_results.xlsx')
 
 
-# In[ ]:
 
 
 
